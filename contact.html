@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+Name: Casey Meurer
+Coding 03
+Purpose: Contact web page with mobile first design
+-->
+<html>
+    <head>
+        <title>Contact</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/main.css" rel="stylesheet">
+        <link rel="icon" href="favicon.ico" type="image/ico">
+    </head>
+    <body>
+        <div class="nav">
+            <a href="index.html">Home</a>
+        </div>
+        <div class="form-container">
+            <div id="msg">
+                <!-- This is a blank area to talk with user -->
+                <br>
+            </div>
+            <div id="form-div">
+                <form id="contact-data" name="emailForm" role="form" accept-charset="utf-8">
+                    <div class="form-input">
+                        <input name="name" type="text" id="name"  placeholder="Your Name" maxlength="64">
+                    </div>
+                    <div class="form-input">
+                        <input type="text" id="remail1" name="remail1" placeholder="Return Email" maxlength="64" >
+                    </div>
+                    <div class="form-input">
+                        <input type="text" id="remail2" name="remail2" placeholder="Re-enter Return Email" maxlength="64" >
+                    </div>
+                    <div class="form-input">
+                        <input type="text" id="subject" name="subject" placeholder="Subject" maxlength="64" >
+                    </div>
+                    <div class="form-input">
+                        <textarea  id="message" name="message" placeholder="Your Message" columns="50" rows="10" maxlength="1000" ></textarea>
+                    </div>
+                    <div class="form-input">
+                        <button class="button" type="button" id="send">Send</button>
+                        <button class="button" type="button" id="clear">Clear</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    <script src="js/main.js"></script>
+    </body>
+</html>
