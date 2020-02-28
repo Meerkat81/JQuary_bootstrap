@@ -5,13 +5,28 @@
  **********************/
 "use strict";
 
-
+//TODO convert EMAIL REGEX TO JQUARY
 function validEmail(email) {
 
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\ -0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     return re.test(email);
 }
+//JQuary
+$(document).ready(function () {
+    $("form").submit(function(event){
+        var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\ -0-9]+\.)+[a-zA-Z]{2,}))$/;
+        var name = $("#name").val();
+        var email =$("#remail1").val();
+        var subject = $("#subject").val();
+        var message = $("#message").val();
+
+        if(regex.test(email)==false){
+            email
+        }
+    });
+});
+
 
 function sendForm() {
     const XHR = new XMLHttpRequest();
@@ -45,62 +60,55 @@ function sendForm() {
 }
 
 
-function clearForm() {
+$.fn.clearForm =  function() {
 
-    document.getElementById("name").value = ("");
-    document.getElementById("remail1").value = ("");
-    document.getElementById("remail2").value = ("");
-    document.getElementById("subject").value = ("");
-    document.getElementById("message").value = ("");
+    $('#name').val ('');
+    $('#remail1').val('');
+    $('#remail2').val('');
+    $('#subject').val('');
+    $('#message').val('');
 
-    document.getElementById("msg").innerHTML = "<br>";
-}
+    $('#msg').html( '<br>');
+};
 
 function validate() {
     var errorMessage = "";
     //get all form elements
-    var nameInput = document.getElementById("name");
-    var rEmail1Input = document.getElementById("remail1");
-    var rEmail2Input = document.getElementById("remail2");
-    var subjectInput = document.getElementById("subject");
-    var messageInput = document.getElementById("message");
-
-    //get all the stringsand trim
-    var name = nameInput.value.trim();
-    var email1 = rEmail1Input.value.trim();//first email
-    var email2 = rEmail2Input.value.trim();//email confirmation
-    var subject = subjectInput.value.trim();
-    var message = messageInput.value.trim();
+    var nameInput = $('#name').val().trim();
+    var rEmail1Input = $('#remail1').val().trim();
+    var rEmail2Input = $('#remail2').val().trim();
+    var subjectInput = $('#subject').val().trim();
+    var messageInput = $('#message').val().trim();
 
     //put input back into field for UX
-    nameInput.value = name;
-    rEmail1Input.value = email1;
-    rEmail2Input.value = email2;
-    subjectInput.value = subject;
-    messageInput.value = message;
+    $('#name').val(nameInput);
+    $('#remail1').val(rEmail1Input);
+    $('#remail2').val(rEmail2Input);
+    $('#subject').val(subjectInput);
+    $('#message').val(messageInput);
 
     //test the input string from form and store an error message
-    if(name === ""){
+    if(nameInput === ""){
         errorMessage += "Name cannot be empty. <br>";
     }
 
-    if(subject === ""){
+    if(subjectInput === ""){
         errorMessage += "Subject cannot be empty. <br>";
     }
 
-    if(!validEmail(email1)){
+    if(!validEmail(rEmail1Input)){
         errorMessage += "First email is invalid. <br>";
     }
 
-    if(!validEmail(email2)){
+    if(!validEmail(rEmail2Input)){
         errorMessage += "Second email is invalid. <br>";
     }
 
-    if(email1 != email2){
+    if(rEmail1Input != rEmail2Input){
         errorMessage += "Emails must match. <br>";
     }
 
-    if(message === ""){
+    if(messageInput === ""){
         errorMessage += "Message cannot be empty. <br>";
     }
 
@@ -129,7 +137,7 @@ sendBtn.onclick = function(){
     }
 };
 
-
+/*
 //create clear button
 var clearBtn = document.getElementById("clear");
 
@@ -137,3 +145,14 @@ var clearBtn = document.getElementById("clear");
 clearBtn.onclick = function(){
     clearForm();
 }
+
+ */
+//JQuary Clear
+$(document).ready(function () {
+    $('#clear').click(function () {
+        $(this).clearForm();
+
+    })
+
+
+})
