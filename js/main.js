@@ -5,29 +5,13 @@
  **********************/
 "use strict";
 
-//TODO convert EMAIL REGEX TO JQUARY
-function validEmail(email) {
-
+//convert EMAIL REGEX TO JQUARY
+$.fn.validEmail = function (email) {
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\ -0-9]+\.)+[a-zA-Z]{2,}))$/;
-
     return re.test(email);
-}
-//JQuary
-$(document).ready(function () {
-    $("form").submit(function(event){
-        var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\ -0-9]+\.)+[a-zA-Z]{2,}))$/;
-        var name = $("#name").val();
-        var email =$("#remail1").val();
-        var subject = $("#subject").val();
-        var message = $("#message").val();
+};
 
-        if(regex.test(email)==false){
-            email
-        }
-    });
-});
-
-
+/*
 function sendForm() {
     const XHR = new XMLHttpRequest();
     let formData = new FormData(document.getElementById('contact-data'))
@@ -58,6 +42,29 @@ function sendForm() {
     XHR.open('POST', 'email.php');
     XHR.send(formData);
 }
+*/
+
+$.fn.sendForm = function(){
+    const formValues = $(this).serialize();
+    console.log(formValues);
+    $.ajax({
+        url: './email.php',
+        type: 'POST',
+        data: {formValues},
+
+        success: function (val) {
+            console.log(val);
+            if (val != "Okay") {
+                $('#msg').html('Please try again later');
+            } else {
+                $('#msg').html('Sent!');
+            }
+        },
+        error: function () {
+            $('#msg').html('Please try again later');
+        }
+    });
+};
 
 
 $.fn.clearForm =  function() {
@@ -71,7 +78,7 @@ $.fn.clearForm =  function() {
     $('#msg').html( '<br>');
 };
 
-function validate() {
+$.fn.validate = function() {
     var errorMessage = "";
     //get all form elements
     var nameInput = $('#name').val().trim();
@@ -96,11 +103,11 @@ function validate() {
         errorMessage += "Subject cannot be empty. <br>";
     }
 
-    if(!validEmail(rEmail1Input)){
+    if(!$(this).validEmail(rEmail1Input)){
         errorMessage += "First email is invalid. <br>";
     }
 
-    if(!validEmail(rEmail2Input)){
+    if(!$(this).validEmail(rEmail2Input)){
         errorMessage += "Second email is invalid. <br>";
     }
 
@@ -114,8 +121,23 @@ function validate() {
 
     return errorMessage;
 }
+//JQuary Send
+$(document).ready(function () {
+    $('#send').click(function () {
+        //var msgArea = $('#msg');
+        var msg = $(this).validate();
+        if (msg === ""){
+            $('#msg').html('Sending......');
+            $(this).sendForm();
+            $(this).clearForm();
 
+        } else {
+            $('#msg').html(msg);
+        }
 
+    })
+});
+/*
 //CONFIG SEND BUTTON
 var sendBtn = document.getElementById("send")
 
@@ -136,23 +158,13 @@ sendBtn.onclick = function(){
         return false;
     }
 };
+*/
 
-/*
-//create clear button
-var clearBtn = document.getElementById("clear");
 
-//create and event listener and handler for the clear button
-clearBtn.onclick = function(){
-    clearForm();
-}
 
- */
 //JQuary Clear
 $(document).ready(function () {
     $('#clear').click(function () {
         $(this).clearForm();
-
     })
-
-
-})
+});
