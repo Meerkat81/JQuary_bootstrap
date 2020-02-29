@@ -9,40 +9,62 @@ Purpose: Index web page with mobile first design
         <title>Home</title>
 
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="css/main.css" rel="stylesheet">
-        <link rel="shortcut icon" href="favicon.ico" type="image/ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!--<link href="css/main.css" rel="stylesheet"> -->
+        <link rel="shortcut icon" href="favicon.ico" type="image/ico">
     </head>
     <body>
-        <div class="nav">
-            <a href="contact.html">Contact</a>
-            <a href="https://en.wikipedia.org/wiki/Austin%2C_Texas#History" target="_blank">Austin</a>
+       <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav mr-auto"></ul>
+                            <li class="nav-item">
+                                <a href="contact.html" class="nav-item nav-link active">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://en.wikipedia.org/wiki/Austin%2C_Texas#History" class="nav-item nav-link">Austin</a>
+                            </li>
+                        </ul>
+                </div>
+            </div>
+        </nav>
+        <div class = "container">
+            <div class="row">
+                    <div class="col-lg-3">
+                        <img src="images/downtown.jpg" class="img-fluid">
+                    </div>
+                    <div class="col-lg-9 text-wrap">
+                        <p>
+                            Lorem ipsum dolor sit amet, autem integre vis at, quidam nonumes pertinax pro te. Ea nec simul audire
+                            deleniti, mollis numquam ex pri, te probo voluptaria pro. No ius mucius omnium conceptam, in sit illud
+                            pertinax. Iusto persius consulatu in quo.
+                        </p>
+                        <p>
+                            Eu duo nisl ferri definiebas, graeci labores eligendi ne duo, hinc case complectitur no sea. Probo
+                            dolor soleat mel eu, ei sea illum saepe, pri ei magna option. Eu sea fabulas vivendo legendos, mea ne
+                            modus definiebas. Eos no vide facilisis, graece possit ad mea, solum elitr possim est ad. Eos veritus
+                            adipisci inimicus no. Per et nibh atqui.
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, autem integre vis at, quidam nonumes pertinax pro te. Ea nec simul audire
+                            deleniti, mollis numquam ex pri, te probo voluptaria pro. No ius mucius omnium conceptam, in sit illud
+                            pertinax. Iusto persius consulatu in quo.
+                        </p>
+                        <p>
+                            Eu duo nisl ferri definiebas, graeci labores eligendi ne duo, hinc case complectitur no sea. Probo
+                            dolor soleat mel eu, ei sea illum saepe, pri ei magna option. Eu sea fabulas vivendo legendos, mea ne
+                            modus definiebas. Eos no vide facilisis, graece possit ad mea, solum elitr possim est ad. Eos veritus
+                            adipisci inimicus no. Per et nibh atqui.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <img src="images/downtown.jpg" />
-            <p>
-                Lorem ipsum dolor sit amet, autem integre vis at, quidam nonumes pertinax pro te. Ea nec simul audire
-                deleniti, mollis numquam ex pri, te probo voluptaria pro. No ius mucius omnium conceptam, in sit illud
-                pertinax. Iusto persius consulatu in quo.
-            </p>
-            <p>
-                Eu duo nisl ferri definiebas, graeci labores eligendi ne duo, hinc case complectitur no sea. Probo
-                dolor soleat mel eu, ei sea illum saepe, pri ei magna option. Eu sea fabulas vivendo legendos, mea ne
-                modus definiebas. Eos no vide facilisis, graece possit ad mea, solum elitr possim est ad. Eos veritus
-                adipisci inimicus no. Per et nibh atqui.
-            </p>
-            <p>
-                Lorem ipsum dolor sit amet, autem integre vis at, quidam nonumes pertinax pro te. Ea nec simul audire
-                deleniti, mollis numquam ex pri, te probo voluptaria pro. No ius mucius omnium conceptam, in sit illud
-                pertinax. Iusto persius consulatu in quo.
-            </p>
-            <p>
-                Eu duo nisl ferri definiebas, graeci labores eligendi ne duo, hinc case complectitur no sea. Probo
-                dolor soleat mel eu, ei sea illum saepe, pri ei magna option. Eu sea fabulas vivendo legendos, mea ne
-                modus definiebas. Eos no vide facilisis, graece possit ad mea, solum elitr possim est ad. Eos veritus
-                adipisci inimicus no. Per et nibh atqui.
-            </p>
-        </div>
-
+        <script src="js/jquery-3.4.1.js"></script>
+       <script src="js/bootstrap.min.js"></script>
     </body>
 </html>
