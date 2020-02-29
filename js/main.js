@@ -11,59 +11,18 @@ $.fn.validEmail = function (email) {
     return re.test(email);
 };
 
-/*
-function sendForm() {
-    const XHR = new XMLHttpRequest();
-    let formData = new FormData(document.getElementById('contact-data'))
-
-
-    XHR.addEventListener("load",transferComplete);
-    XHR.addEventListener("error", transferFailed);
-    console.log(formData);
-
-    function transferComplete(){
-        var msgArea = document.getElementById("msg");
-        var response = XHR.responseText;
-        if (response != "okay") {
-            msgArea.innerText = "Try again later";
-        } else {
-            msgArea.innerText = "Sent!";
-        }
-
-
-    }
-
-    function transferFailed() {
-        var msgArea = document.getElementById("msg");
-        var response = XHR.responseText;
-        
-    }
-
-    XHR.open('POST', 'email.php');
-    XHR.send(formData);
-}
-*/
 
 $.fn.sendForm = function(){
-    const formValues = $(this).serialize();
+    var formValues = $("form").serialize();
     console.log(formValues);
-    $.ajax({
-        url: './email.php',
-        type: 'POST',
-        data: {formValues},
-
-        success: function (val) {
-            console.log(val);
-            if (val != "Okay") {
-                $('#msg').html('Please try again later');
-            } else {
-                $('#msg').html('Sent!');
-            }
-        },
-        error: function () {
-            $('#msg').html('Please try again later');
+    $.post("./email.php", formValues, function (data) {
+        if (data != "okay") {
+            $("#msg").html("Try again later");
+        }else{
+            $("#msg").html("Sent!")
         }
     });
+
 };
 
 
@@ -130,35 +89,12 @@ $(document).ready(function () {
             $('#msg').html('Sending......');
             $(this).sendForm();
             $(this).clearForm();
-
         } else {
             $('#msg').html(msg);
         }
 
     })
 });
-/*
-//CONFIG SEND BUTTON
-var sendBtn = document.getElementById("send")
-
-
-//CREATE LISTENER FOR SEND BUTTON
-sendBtn.onclick = function(){
-
-    var msgArea = document.getElementById("msg");
-    //get the validation of the form
-    var msg = validate();
-    if (msg === ""){
-        msgArea.innerHTML = "Sending....";
-        sendForm();
-        clearForm();
-        return true;
-    } else {
-        msgArea.innerHTML = msg;
-        return false;
-    }
-};
-*/
 
 
 
