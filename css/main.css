@@ -9,20 +9,19 @@
  */
 body{
     background-color: #F7F5E6;
-  /*  text-align: center;*/
     color: #A5A5AF;
 }
 
 
 textarea{
-    
+
     border-radius: 5px;
     font-size: 16px;
     font-family: Arial;
 }
 
 input{
-   /* width: 100%; */
+
     border-radius: 5px;
     font-size: 16px;
     font-family: Arial;
@@ -41,12 +40,12 @@ a:visited{
     color: #015249;
 }
 
--div{
-    margin: 10px auto;
+nav{
+    background-color: #e3f2fd;
 }
- */
+
 .form-input{
-    width: 100%;
+
     text-align: center;
 }
 

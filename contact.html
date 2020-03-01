@@ -10,11 +10,11 @@ Purpose: Contact web page with mobile first design
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/bootstrap.min.css" rel="stylesheet">
-        <!--<link href="css/main.css" rel="stylesheet">-->
+        <link href="css/main.css" rel="stylesheet">
         <link rel="icon" href="favicon.ico" type="image/ico">
     </head>
     <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark bg-info">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -22,6 +22,12 @@ Purpose: Contact web page with mobile first design
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto"></ul>
                 <li class="nav-item">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="gallery.html" class="nav-item nav-link active">Gallery</a>
+                </li>
+                <li class="nav-item active">
                     <a href="contact.html" class="nav-item nav-link active">Contact</a>
                 </li>
                 <li class="nav-item">
@@ -33,33 +39,47 @@ Purpose: Contact web page with mobile first design
     </nav>
         <div class="container">
             <div class="row">
+                <div class="col-lg-12">
                 <div id="msg">
                     <!-- This is a blank area to talk with user -->
                     <br>
                 </div>
-                <div id="form-div">
                     <form id="contact-data" name="emailForm" role="form" accept-charset="utf-8">
-                        <div class="form-input">
-                            <input name="name" type="text" id="name"  placeholder="Your Name" maxlength="64" value="Casey">
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <input name="name" type="text" id="name" class="form-control"  placeholder="Your Name" maxlength="64">
+                            </div>
                         </div>
-                        <div class="form-input">
-                            <input type="text" id="remail1" name="remail1" placeholder="Return Email" maxlength="64" value="c@m.com">
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <input type="text" id="remail1" name="remail1" class="form-control" placeholder="Return Email" maxlength="64">
+                            </div>
                         </div>
-                        <div class="form-input">
-                            <input type="text" id="remail2" name="remail2" placeholder="Re-enter Return Email" maxlength="64" value="c@m.com" >
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <input type="text" id="remail2" name="remail2" class="form-control" placeholder="Re-enter Return Email" maxlength="64">
+                            </div>
                         </div>
-                        <div class="form-input">
-                            <input type="text" id="subject" name="subject" placeholder="Subject" maxlength="64" value="test">
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject"
+                                       maxlength="64">
+                            </div>
                         </div>
-                        <div class="form-input">
-                            <textarea  id="message" name="message" placeholder="Your Message" columns="50" rows="10" maxlength="1000" >test message</textarea>
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <textarea  id="message" name="message" class="form-control" placeholder="Your Message"
+                                           columns="50" rows="10" maxlength="1000" ></textarea>
+                            </div>
                         </div>
-                        <div class="form-input">
-                            <button type="button" class="btn btn-primary" id="send">Send</button>
-                            <button type="button" class="btn btn-primary" id="clear">Clear</button>
+                        <div class="form-group row">
+                            <div class="col-sm-10 offset-md-4">
+                                <button type="button" class="btn btn-primary align-self-center" id="send">Send</button>
+                                <button type="button" class="btn btn-primary align-self-center" id="clear">Clear</button>
+                            </div>
                         </div>
                     </form>
-                </div>
+            </div>
             </div>
         </div>
     <script src="js/jquery-3.4.1.js"></script>
